@@ -1,15 +1,29 @@
 
+import React from "react";
+import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
 import './App.css';
+import Header from "./Components/Header";
+import MovieList from "./Components/MovieList";
+import Footer from './Components/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <h1>Netflixx work on going</h1>
-      </header>
-    </div>
-  );
+    <div>
+      <Router>
+        <div className="app">
+          <Header />
+        </div>
+        <Routes>
+          <Route exact path="/" Component={MovieList}/>
+        </Routes>
+      </Router>
+     
+     <Footer />
+     </div>
+)
+
 }
 
 export default App;
+
