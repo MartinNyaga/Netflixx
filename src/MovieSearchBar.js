@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const MovieSearchBar = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
+const MovieSearchBar = ({ searchTerm, setSearchTerm }) => {
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleSearch = () => {
-    onSearch(searchTerm);
   };
 
   return (
@@ -19,7 +13,6 @@ const MovieSearchBar = ({ onSearch }) => {
         onChange={handleInputChange}
         placeholder="Search for a movie..."
       />
-      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };
