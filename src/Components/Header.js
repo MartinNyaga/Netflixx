@@ -12,6 +12,22 @@ const Header=()=>{
             <nav className="header_nav">
                 <Link to="movielist">Home</Link>
             </nav>
+            <div>
+<a href = "facebook link">
+    <i className="fab fa-facebook">
+        <div/>
+    </i>
+</a>
+
+<a href = "twitter link">
+    <i className="fab fa-twitter"></i>
+</a>
+
+<a href = "instagram link">
+    <i className="fab fa-instagram"></i>
+</a>
+
+</div>
         </header>
     )
 }
