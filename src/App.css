@@ -39,3 +39,24 @@ align-items: flex-start;
   font-weight: bold;
   text-align: center;
 }
+
+.movie_details{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1px;
+  border-radius: 10px 10px 10px 10px;
+  color: #fff;
+}
+
+.movie_overview{
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.movie_rating{
+  font-size: 14px;
+  margin-top: 5px;
+}
