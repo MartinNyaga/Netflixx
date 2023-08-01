@@ -3,7 +3,7 @@ const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [movieDetails, setMovieDetails] = useState({});
     const [isHovering, setIsHovering] = useState(null);
-    const [selectedMovieId, setSelectedMovieId] = useState(null);
+    // const [selectedMovieId, setSelectedMovieId] = useState(null);
 
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=8613e44dd729f371ce69257fa7c24c0c")
