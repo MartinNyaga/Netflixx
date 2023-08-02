@@ -1,6 +1,9 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import header_logo from "../Assets/logo.png"
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const Header=()=>{
     return(
         <header className="header">
@@ -12,23 +15,27 @@ const Header=()=>{
             <nav className="header_nav">
                 <Link to="movielist">Home</Link>
             </nav>
-            <div>
-<a href = "facebook link">
+            <div className="Fonts">
+          
+<a href = "#https://facebook.com">
     <i className="fab fa-facebook">
-        <div/>
-    </i>
-</a>
-
-<a href = "twitter link">
-    <i className="fab fa-twitter"></i>
-</a>
-
-<a href = "instagram link">
-    <i className="fab fa-instagram"></i>
-</a>
+        
+        </i>
+    </a>
+    
+    <a href = "#https://twitter.com">
+        <i className="fab fa-twitter"></i>
+    </a>
+    
+    <a href = "#https://instagram.com">
+        <i className="fab fa-instagram"></i>
+    </a>
 
 </div>
+
         </header>
-    )
+    );
 }
-export  default Header
+export  default Header;
+
+

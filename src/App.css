@@ -20,6 +20,23 @@ align-items: flex-start;
   color: #fff;
   text-decoration: none;
 }
+.fonts {
+  display: flex;
+  justify-content: space-between;
+
+}
+.fab.fa-facebook{
+font-size: 32px;
+margin-right: 10px;
+}
+.fab.fa-twitter{
+  font-size: 32px;
+  margin-right:10px;
+}
+.fab.fa-instagram {
+  font-size: 32px;
+}
+
 .movie-list{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
