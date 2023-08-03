@@ -1,11 +1,12 @@
 import React from 'react';
 
 
-function Footer() {
+function Footer({ aboutUs }) {
+
   return (
     <footer className="Footer">
       <div className="Footer-content">
-        <div className="Footer-left">
+        <div className="Footer-left" ref={aboutUs}>
            
           <h3>About Us</h3>
           <p>
