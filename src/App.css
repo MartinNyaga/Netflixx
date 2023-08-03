@@ -75,13 +75,19 @@
 }
 
 .fab.fa-facebook{
-  font-size: 32px;
-  margin-right: 10px;
+font-size: 32px;
+margin-right: 10px;
+color: white;
 }
 
 .fab.fa-twitter{
   font-size: 32px;
-  margin-right: 10px;
+  margin-right:10px;
+  color: white;
+}
+.fab.fa-instagram {
+  font-size: 32px;
+  color: white;
 }
 
 .fab.fa-instagram {
@@ -107,4 +113,8 @@
 .movie_rating{
   font-size: 14px;
   margin-top: 5px;
+}
+
+body{
+  background-image: url("./Assets/login.jpg");
 }
