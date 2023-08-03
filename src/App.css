@@ -42,13 +42,16 @@ align-items: flex-start;
 .fab.fa-facebook{
 font-size: 32px;
 margin-right: 10px;
+color: white;
 }
 .fab.fa-twitter{
   font-size: 32px;
   margin-right:10px;
+  color: white;
 }
 .fab.fa-instagram {
   font-size: 32px;
+  color: white;
 }
 
 .movie-list{
