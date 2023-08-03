@@ -30,3 +30,5 @@ const MovieList = () => {
 };
 
 export default MovieList;
+
+.3
