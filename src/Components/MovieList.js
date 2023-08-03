@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const MovieList = ({ movies }) => {
 
@@ -38,7 +38,7 @@ const MovieList = ({ movies }) => {
         };
 
         fetchMovieDetails();
-    }, [movies]);
+    }, [moviess]);
 
     const handleMouseEnter = (movieId) => {
         setIsHovering(movieId);
