@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-const MovieList = () => {
-    const [movies, setMovies] = useState([]);
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+// import { Link } from 'react-router-dom';
+
+const MovieList = ({ movies }) => {
+
+    const [moviess, setMovies] = useState([]);
     const [movieDetails, setMovieDetails] = useState({});
     const [isHovering, setIsHovering] = useState(null);
 
@@ -18,7 +21,7 @@ const MovieList = () => {
     useEffect(() => {
         // Fetch movie details for each movie in the movies array
         const fetchMovieDetails = async () => {
-            const promises = movies.map((movie) =>
+            const promises = moviess.map((movie) =>
                 fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=8613e44dd729f371ce69257fa7c24c0c`)
                     .then(response => response.json())
             );
@@ -35,7 +38,7 @@ const MovieList = () => {
         };
 
         fetchMovieDetails();
-    }, [movies]);
+    }, [moviess]);
 
     const handleMouseEnter = (movieId) => {
         setIsHovering(movieId);
@@ -72,34 +75,38 @@ const MovieList = () => {
             console.log("Error fetching trailer:", error);
         }
     };
-    return (
-        <div className="movie-list">
-            {movies.map((movie) => (
-                <div
-                    className="movie"
-                    key={movie.id}
-                    onMouseEnter={() => handleMouseEnter(movie.id)}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    <img
-                        className="movie_poster"
-                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                        alt={movie.title}
-                    />
-                    <div className="movie_details">
-                        <h3 className="movie_title">{movie.title}</h3>
-                        {isHovering === movie.id && (
-                            <div>
-                                <p className="movie_overview">{movieDetails[movie.id]?.overview}</p>
-                                <button className="movie_button" onClick={() => handlePlayTrailer(movie.id)}>Play Trailer</button>
-                            </div>
-                        )}
-                        <p className="movie_rating">Rating: {movieDetails[movie.id]?.vote_average }</p>
-                    </div>
-                </div>
-            ))}
-        </div>
-    );
+
+  return (
+    <div className="movie-list">
+      {movies.map((movie) => (
+       <div
+       className="movie"
+       key={movie.id}
+       onMouseEnter={() => handleMouseEnter(movie.id)}
+       onMouseLeave={handleMouseLeave}
+   >
+       <img
+           className="movie_poster"
+           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+           alt={movie.title}
+       />
+       <div className="movie_details">
+           <h3 className="movie_title">{movie.title}</h3>
+           {isHovering === movie.id && (
+               <div>
+                   <p className="movie_overview">{movieDetails[movie.id]?.overview}</p>
+                   <button className="movie_button" onClick={() => handlePlayTrailer(movie.id)}>Play Trailer</button>
+               </div>
+           )}
+           <p className="movie_rating">Rating: {movieDetails[movie.id]?.vote_average }</p>
+       </div>
+   </div>
+
+
+      ))}
+    </div>
+  );
 };
 
 export default MovieList;
+

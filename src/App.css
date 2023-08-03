@@ -1,15 +1,47 @@
-.app{
-  max-height: 1200px;
-  margin:0 auto;
-  padding: 20px;
+/* App.css */
+.App {
+  text-align: center;
+  padding-top: 20px; /* Add top padding to create space between header and content */
 }
+
+.search-bar {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+/* Add margin and adjust spacing between movie posters */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px; /* Add top margin to create space between search bar and movie posters */
+}
+
+.movie {
+  position: relative;
+}
+
+.movie_poster {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie_title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .header{
   display: flex;
   justify-content: space-between;
-align-items: flex-start;
+  align-items: flex-start;
   padding: 20px;
   background-color: #141414;
 }
+
 .header_logo{
   width: 200px;
   height: auto;
@@ -18,32 +50,36 @@ align-items: flex-start;
 .header_nav{
   display: flex;
 }
+
 .links{
   display: flex;
   gap: 20px;
 }
+
 .header_nav a{
   margin-left: 20px;
   color: #fff;
   text-decoration: none;
 }
+
 .About-Us{
-  background-color:transparent;
+  background-color: transparent;
   color: #ffffff;
-   border: none;
+  border: none;
   cursor: pointer;
 }
 
 .fonts {
   display: flex;
   justify-content: space-between;
-
 }
+
 .fab.fa-facebook{
 font-size: 32px;
 margin-right: 10px;
 color: white;
 }
+
 .fab.fa-twitter{
   font-size: 32px;
   margin-right:10px;
@@ -54,24 +90,8 @@ color: white;
   color: white;
 }
 
-.movie-list{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
-}
-.movie{
-  position: relative;
-}
-.movie_poster{
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-.movie_title{
-  margin-top: 10px;
-  font-size:16px;
-  font-weight: bold;
-  text-align: center;
+.fab.fa-instagram {
+  font-size: 32px;
 }
 
 .movie_details{
