@@ -14,6 +14,7 @@ const MovieList = ({ movies }) => {
             />
           </Link>
           <div className="movie_title">{movie.title}</div>
+          {/* Add the rest of your original code here */}
         </div>
       ))}
     </div>

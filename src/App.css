@@ -1,5 +1,4 @@
 /* App.css */
-/* App.css */
 .App {
   text-align: center;
   padding-top: 20px; /* Add top padding to create space between header and content */
@@ -35,3 +34,77 @@
   text-align: center;
 }
 
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #141414;
+}
+
+.header_logo{
+  width: 200px;
+  height: auto;
+}
+
+.header_nav{
+  display: flex;
+}
+
+.links{
+  display: flex;
+  gap: 20px;
+}
+
+.header_nav a{
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.About-Us{
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.fonts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fab.fa-facebook{
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.fab.fa-twitter{
+  font-size: 32px;
+  margin-right: 10px;
+}
+
+.fab.fa-instagram {
+  font-size: 32px;
+}
+
+.movie_details{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1px;
+  border-radius: 10px 10px 10px 10px;
+  color: #fff;
+}
+
+.movie_overview{
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.movie_rating{
+  font-size: 14px;
+  margin-top: 5px;
+}
