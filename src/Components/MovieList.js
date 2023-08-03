@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [movieDetails, setMovieDetails] = useState({});
     const [isHovering, setIsHovering] = useState(null);
-    // const [selectedMovieId, setSelectedMovieId] = useState(null);
 
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=8613e44dd729f371ce69257fa7c24c0c")
@@ -45,14 +45,31 @@ const MovieList = () => {
         setIsHovering(null);
     };
 
-    const handlePlayTrailer = (movieId) => {
-        const trailerUrl = movieDetails[movieId]?.videos?.results?.find(
-            (video) => video.type === "Trailer" && video.site === "YouTube"
-        )?.key;
+    const handlePlayTrailer = async (movieId) => {
+        const movie = movieDetails[movieId];
+        if (!movie) return;
 
-        if (trailerUrl) {
-            const youtubeUrl = `https://www.youtube.com/watch?v=${trailerUrl}`;
-            window.open(youtubeUrl, "_blank");
+        try {
+            const response = await axios.get(
+                `https://www.googleapis.com/youtube/v3/search`,
+                {
+                    params: {
+                        part: "snippet",
+                        q: `${movie.title} Official Trailer`,
+                        type: "video",
+                        maxResults: 1,
+                        key: "AIzaSyCBSX8QFn-mQ4esEGATSclVD3ANnm7IVsc",
+                    },
+                }
+            );
+
+            const videoId = response.data.items[0]?.id?.videoId;
+            if (videoId) {
+                const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
+                window.open(youtubeUrl, "_blank");
+            }
+        } catch (error) {
+            console.log("Error fetching trailer:", error);
         }
     };
     return (
@@ -74,10 +91,10 @@ const MovieList = () => {
                         {isHovering === movie.id && (
                             <div>
                                 <p className="movie_overview">{movieDetails[movie.id]?.overview}</p>
-                                <button onClick={() => handlePlayTrailer(movie.id)}>Play Trailer</button>
+                                <button className="movie_button" onClick={() => handlePlayTrailer(movie.id)}>Play Trailer</button>
                             </div>
                         )}
-                        <p className="movie_rating">Rating: {movieDetails[movie.id]?.vote_average}</p>
+                        <p className="movie_rating">Rating: {movieDetails[movie.id]?.vote_average }</p>
                     </div>
                 </div>
             ))}
@@ -86,5 +103,3 @@ const MovieList = () => {
 };
 
 export default MovieList;
-
-
