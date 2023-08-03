@@ -1,11 +1,12 @@
 import React from 'react';
 
 
-function Footer() {
+function Footer({ aboutUs }) {
+
   return (
     <footer className="Footer">
       <div className="Footer-content">
-        <div className="Footer-left">
+        <div className="Footer-left" ref={aboutUs}>
            
           <h3>About Us</h3>
           <p>
@@ -17,8 +18,8 @@ function Footer() {
         </div>
         <div className="Footer-right">
           <h3>Contact</h3>
-          <p>Email: misraabdi@gmail.com</p>
-          <p>Phone: (+254)  0704384092</p>
+          <p>Email: Netflixx@gmail.com</p>
+          <p>Phone: (+254)  0722200000</p>
         </div>
       </div>
       <div className="Footer-bottom">

@@ -5,21 +5,55 @@
 }
 .header{
   display: flex;
+  justify-content: space-between;
 align-items: flex-start;
   padding: 20px;
+  background-color: #141414;
 }
 .header_logo{
   width: 200px;
   height: auto;
 }
+
 .header_nav{
   display: flex;
+}
+.links{
+  display: flex;
+  gap: 20px;
 }
 .header_nav a{
   margin-left: 20px;
   color: #fff;
   text-decoration: none;
 }
+.About-Us{
+  background-color:transparent;
+  color: #ffffff;
+   border: none;
+  cursor: pointer;
+}
+
+.fonts {
+  display: flex;
+  justify-content: space-between;
+
+}
+.fab.fa-facebook{
+font-size: 32px;
+margin-right: 10px;
+color: white;
+}
+.fab.fa-twitter{
+  font-size: 32px;
+  margin-right:10px;
+  color: white;
+}
+.fab.fa-instagram {
+  font-size: 32px;
+  color: white;
+}
+
 .movie-list{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
