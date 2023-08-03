@@ -60,3 +60,7 @@ align-items: flex-start;
   font-size: 14px;
   margin-top: 5px;
 }
+
+body{
+  background-image: url("./Assets/login.jpg");
+}
