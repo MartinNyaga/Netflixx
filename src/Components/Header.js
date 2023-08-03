@@ -4,7 +4,14 @@ import header_logo from "../Assets/logo.png"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Header=()=>{
+const Header=({ aboutUs })=>{
+const scroll = () => {
+    if(aboutUs.current){
+        aboutUs.current.scrollIntoView({ behaviour: "smooth"  });
+    }
+};
+
+
     return(
         <header className="header">
             <Link to="/">
@@ -13,8 +20,17 @@ const Header=()=>{
                 />
             </Link>
             <nav className="header_nav">
+                <div className="links">
                 <Link to="movielist">Home</Link>
-            </nav>
+               <Link to="/tvshows">TV Shows</Link>
+               <Link to="/movies">Movies</Link>
+               <Link to="/series">Series</Link>
+               <Link to="/latest">Latest</Link>
+               <Link to="/mylist">My List</Link>
+               <button className="About-Us" onClick={scroll}>About Us</button>
+                </div>
+                </nav>
+
             <div className="Fonts">
           
 <a href = "#https://facebook.com">
