@@ -1,9 +1,14 @@
 
 # Netflixx - Movie Discovery App
 
+## The App URL
+
+[APP](https://netflixxwebapp.netlify.app/)
+
+
 
 # Project Purpose
-Netflixx is a movie app designed to provide users with a seamless movie discovery and watching experience. The main goal of the app is to allow users to easily explore and find information about movies, such as title, release date, synopsis, cast, and reviews. With a user-friendly interface and smooth navigation, Netflixx aims to enhance the overall movie-watching experience for its users.
+Netflixx is a movie app designed to provide users with a seamless movie discovery and watching experience. The main goal of the app is to allow users to easily explore and find information about movies, such as title, synopsis and reviews. With a user-friendly interface and smooth navigation, Netflixx aims to enhance the overall movie-watching experience for its users.
 
 # Minimum Viable Product (MVP) Features
 View Latest Movies: Users can access a curated list of the latest movies, allowing them to stay updated with the most recent releases.
@@ -14,22 +19,22 @@ Movie Search & Trailers: The app enables users to search for specific movies and
 
 # Technologies Used
 Language: JavaScript
-Framework: React
-TMDB API: The Movie Database API to fetch movie information and trailers.
-Additional Features (Future Work)
+Library: React
+APIs: TMDB api and YouTube api
+
 
 # Collaboration
 This project is a collaborative effort, and the team includes the following contributors:
 
-Martin Nyaga
+Martin Nyaga(Scram master)
 Mishack Patrick
 Genevive Mbesi
-Nicole Njeri
+Nicole Mugeshi
 Misra Abdi
-Gift 
+Gift Kimani
 
-# Challenges
-The most significant challenge we anticipate is efficient Git collaboration since it might be a new experience for some team members. We will maintain good communication and follow best practices to ensure smooth collaboration and version control throughout the project.
+# Known Bugs
+Currently no bugs at the moment
 
 # How to Contribute
 If you would like to contribute to Netflixx, please fork the repository, make your changes in a feature branch, and submit a pull request. We welcome any feedback, bug reports, or feature requests to make the app even better.
