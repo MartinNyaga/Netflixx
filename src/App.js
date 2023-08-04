@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import './index.css'
 import MovieSearchBar from './MovieSearchBar';
 import MovieList from './Components/MovieList';
 import Header from './Components/Header';
