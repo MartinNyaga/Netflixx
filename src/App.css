@@ -1,38 +1,120 @@
+/* App.css */
 .App {
+  text-align: center;
+  padding-top: 20px; /* Add top padding to create space between header and content */
+}
+
+.search-bar {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+/* Add margin and adjust spacing between movie posters */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px; /* Add top margin to create space between search bar and movie posters */
+}
+
+.movie {
+  position: relative;
+}
+
+.movie_poster {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie_title {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #141414;
+}
+
+.header_logo{
+  width: 200px;
+  height: auto;
+}
+
+.header_nav{
+  display: flex;
+}
+
+.links{
+  display: flex;
+  gap: 20px;
+}
+
+.header_nav a{
+  margin-left: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.About-Us{
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.fonts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fab.fa-facebook{
+font-size: 32px;
+margin-right: 10px;
+color: white;
+}
+
+.fab.fa-twitter{
+  font-size: 32px;
+  margin-right:10px;
+  color: white;
+}
+.fab.fa-instagram {
+  font-size: 32px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.fab.fa-instagram {
+  font-size: 32px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie_details{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1px;
+  border-radius: 10px 10px 10px 10px;
+  color: #fff;
+}
+
+.movie_overview{
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.movie_rating{
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+body{
+  background-image: url("./Assets/login.jpg");
 }
