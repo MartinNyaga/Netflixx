@@ -118,3 +118,29 @@ color: white;
 body{
   background-image: url("./Assets/login.jpg");
 }
+.popup-message {
+  position: fixed;
+  top: 80px; /* Move below the icons (adjust as needed) */
+  right: 10px; /* Remains on the right */
+  background-color: rgba(0, 0, 0, 0.9); /* Almost fully opaque black */
+  color: white; /* White text */
+  padding: 15px 30px; /* Larger padding for a bigger appearance */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  font-size: 18px; /* Larger font size */
+  font-weight: bold; /* Bold text for emphasis */
+  z-index: 1000; /* Ensure it appears on top of everything */
+  animation: fadeInOut 3s; /* Animation to fade in and out */
+  text-align: center; /* Center the text inside the popup */
+  max-width: 300px; /* Reasonable width to avoid being too wide */
+  word-wrap: break-word; /* Break long text gracefully */
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+

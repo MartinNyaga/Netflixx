@@ -21,7 +21,8 @@ const scroll = () => {
             </Link>
             <nav className="header_nav">
                 <div className="links">
-                <Link to="movielist">Home</Link>
+                <Link to="/">Home</Link>
+
                <Link to="/tvshows">TV Shows</Link>
                <Link to="/movies">Movies</Link>
                <Link to="/series">Series</Link>
@@ -33,19 +34,15 @@ const scroll = () => {
 
             <div className="Fonts">
           
-<a href = "#https://facebook.com">
-    <i className="fab fa-facebook">
-        
-        </i>
-    </a>
-    
-    <a href = "#https://twitter.com">
-        <i className="fab fa-twitter"></i>
-    </a>
-    
-    <a href = "#https://instagram.com">
-        <i className="fab fa-instagram"></i>
-    </a>
+            <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-twitter"></i>
+</a>
+<a href="https://facebook.com/login" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-facebook"></i>
+</a>
+<a href="https://instagram.com/accounts/login" target="_blank" rel="noopener noreferrer">
+    <i className="fab fa-instagram"></i>
+</a>
 
 </div>
 

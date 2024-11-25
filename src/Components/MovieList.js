@@ -1,44 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
 
 const MovieList = ({ movies }) => {
-
-    const [moviess, setMovies] = useState([]);
-    const [movieDetails, setMovieDetails] = useState({});
     const [isHovering, setIsHovering] = useState(null);
+    const [watchlist, setWatchlist] = useState([]);
+    const [message, setMessage] = useState("");
+    const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
-        fetch("https://api.themoviedb.org/3/discover/movie?api_key=8613e44dd729f371ce69257fa7c24c0c")
-            .then(response => response.json())
-            .then(data => {
-                // Assuming the API response contains a property named "results" with the array of movies
-                setMovies(data.results);
-            })
-            .catch((error) => console.log("Error fetching movies:", error));
+        const storedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+        setWatchlist(storedWatchlist);
     }, []);
-
-    useEffect(() => {
-        // Fetch movie details for each movie in the movies array
-        const fetchMovieDetails = async () => {
-            const promises = moviess.map((movie) =>
-                fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=8613e44dd729f371ce69257fa7c24c0c`)
-                    .then(response => response.json())
-            );
-
-            const movieDetailsData = await Promise.all(promises);
-
-            // Create a map of movie IDs to their details for easy access
-            const detailsMap = movieDetailsData.reduce((acc, details) => {
-                acc[details.id] = details;
-                return acc;
-            }, {});
-
-            setMovieDetails(detailsMap);
-        };
-
-        fetchMovieDetails();
-    }, [moviess]);
 
     const handleMouseEnter = (movieId) => {
         setIsHovering(movieId);
@@ -49,7 +21,7 @@ const MovieList = ({ movies }) => {
     };
 
     const handlePlayTrailer = async (movieId) => {
-        const movie = movieDetails[movieId];
+        const movie = movies.find((m) => m.id === movieId);
         if (!movie) return;
 
         try {
@@ -76,37 +48,64 @@ const MovieList = ({ movies }) => {
         }
     };
 
-  return (
-    <div className="movie-list">
-      {movies.map((movie) => (
-       <div
-       className="movie"
-       key={movie.id}
-       onMouseEnter={() => handleMouseEnter(movie.id)}
-       onMouseLeave={handleMouseLeave}
-   >
-       <img
-           className="movie_poster"
-           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-           alt={movie.title}
-       />
-       <div className="movie_details">
-           <h3 className="movie_title">{movie.title}</h3>
-           {isHovering === movie.id && (
-               <div>
-                   <p className="movie_overview">{movieDetails[movie.id]?.overview}</p>
-                   <button className="movie_button" onClick={() => handlePlayTrailer(movie.id)}>Play Trailer</button>
-               </div>
-           )}
-           <p className="movie_rating">Rating: {movieDetails[movie.id]?.vote_average }</p>
-       </div>
-   </div>
+    const handleAddToWatchlist = (movie) => {
+        if (watchlist.some((m) => m.id === movie.id)) {
+            setMessage(`${movie.title} is already in your watchlist.`);
+        } else {
+            const updatedWatchlist = [...watchlist, movie];
+            setWatchlist(updatedWatchlist);
+            localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
+            setMessage(`${movie.title} has been added to your watchlist!`);
+        }
 
+        // Show the popup for 3 seconds
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    };
 
-      ))}
-    </div>
-  );
+    return (
+        <div className="movie-list">
+            {/* Popup notification */}
+            {showPopup && <div className="popup-message">{message}</div>}
+
+            {movies.map((movie) => (
+                <div
+                    className="movie"
+                    key={movie.id}
+                    onMouseEnter={() => handleMouseEnter(movie.id)}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <img
+                        className="movie_poster"
+                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                        alt={movie.title}
+                    />
+                    <div className="movie_details">
+                        <h3 className="movie_title">{movie.title}</h3>
+                        {isHovering === movie.id && (
+                            <div>
+                                <p className="movie_overview">{movie.overview}</p>
+                                <button
+                                    className="movie_button"
+                                    onClick={() => handlePlayTrailer(movie.id)}
+                                >
+                                    Play Trailer
+                                </button>
+                                <button
+                                    className="movie_button"
+                                    onClick={() => handleAddToWatchlist(movie)}
+                                >
+                                    Add to Watchlist
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export default MovieList;
-
